@@ -83,7 +83,7 @@ class LibraryApp
     exit
   end
 
-  public 
+  public
 
   def main
     run
