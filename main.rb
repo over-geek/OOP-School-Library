@@ -82,6 +82,12 @@ class LibraryApp
     puts 'Thank you for using this app!'
     exit
   end
+
+  public 
+
+  def main
+    run
+  end
 end
 
-LibraryApp.new.run
+LibraryApp.new.main
