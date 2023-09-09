@@ -1,10 +1,10 @@
-require_relative './person'
-require_relative './book'
-require_relative './rental'
-require_relative './student'
-require_relative './teacher'
-require_relative './classroom'
-require_relative './nameable'
+require_relative 'person'
+require_relative 'book'
+require_relative 'rental'
+require_relative 'student'
+require_relative 'teacher'
+require_relative 'classroom'
+require_relative 'nameable'
 
 class App
   def initialize
@@ -38,7 +38,7 @@ class App
       puts 'There\'s no one here ATM!'
     else
       @people.each do |person|
-        puts "Name: #{person.name} Age: #{person.age} ID: #{person.id}"
+        puts "Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
       end
     end
   end
@@ -66,7 +66,7 @@ class App
     classroom = gets.chomp
     puts 'Do you have your parents\' permission? [Y/N]'
     parent_permission = gets.chomp
-    student = Student.new(name, age, classroom, parent_permission: parent_permission)
+    student = Student.new(classroom, age, name, parent_permission: parent_permission)
     @people << student
     puts 'Student successfully created'
   end
