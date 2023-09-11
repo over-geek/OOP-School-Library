@@ -11,8 +11,8 @@ class Menu
     7 => { text: 'Exit', action: :exit_app }
   }.freeze
 
-  def initialize
-    @app = App.new
+  def initialize(app)
+    @app = app
   end
 
   def display_menu

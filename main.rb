@@ -1,12 +1,15 @@
 require './app'
+require './menu'
 
 class LibraryApp
   def initialize
     @app = App.new
+    @menu = Menu.new(@app)
   end
 
   def run
     display_welcome_message
+    @menu.run
   end
 
   private
@@ -17,4 +20,4 @@ class LibraryApp
   end
 end
 
-LibraryApp.new.main
+LibraryApp.new.run
