@@ -104,7 +104,7 @@ To run the project, execute the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- basic UI
+- Preserve Data
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
