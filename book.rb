@@ -21,7 +21,7 @@ class Book
     @rentals.push(rental) unless @rentals.include?(rental)
   end
 
-class << self
+  class << self
     attr_reader :all_books
   end
 
