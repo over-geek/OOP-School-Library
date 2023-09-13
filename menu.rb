@@ -2,12 +2,12 @@ require './app'
 
 class Menu
   MENU_OPTIONS = {
-    1 => { text: 'List all books', action: :list_books },
-    2 => { text: 'List all people', action: :list_people },
-    3 => { text: 'Create a person', action: :create_person },
-    4 => { text: 'Create a book', action: :create_book },
-    5 => { text: 'Create a rental', action: :create_rental },
-    6 => { text: 'List all rentals for a given person id', action: :list_rentals_for_person },
+    1 => { text: 'List all books', action: :list_all_books },
+    2 => { text: 'List all people', action: :list_all_people },
+    3 => { text: 'Create a person', action: :create_a_person },
+    4 => { text: 'Create a book', action: :create_a_book },
+    5 => { text: 'Create a rental', action: :create_a_rental },
+    6 => { text: 'List all rentals for a given person id', action: :rental_person_id },
     7 => { text: 'Exit', action: :exit_app }
   }.freeze
 
@@ -36,30 +36,28 @@ class Menu
     end
   end
 
-  def list_books
-    @app.list_books
+  def list_all_books
+    @app.list_all_books
   end
 
-  def list_people
-    @app.list_people
+  def list_all_people
+    @app.list_all_people
   end
 
-  def create_person
-    @app.create_person
+  def create_a_person
+    @app.create_a_person
   end
 
-  def create_book
-    @app.create_book
+  def create_a_book
+    @app.create_a_book
   end
 
-  def create_rental
-    @app.create_rental
+  def create_a_rental
+    @app.create_a_rental
   end
 
-  def list_rentals_for_person
-    puts 'Enter person\'s id'
-    person_id = gets.chomp.to_i
-    @app.list_all_rentals(person_id)
+  def rental_person_id
+    @app.rental_person_id
   end
 
   def exit_app
