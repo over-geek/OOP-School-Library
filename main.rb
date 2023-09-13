@@ -1,5 +1,6 @@
 require './app'
 require './menu'
+require_relative 'create_files'
 
 class LibraryApp
   def initialize
@@ -8,6 +9,7 @@ class LibraryApp
   end
 
   def run
+    create_dir
     display_welcome_message
     @menu.run
   end

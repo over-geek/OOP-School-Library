@@ -10,11 +10,18 @@ class Book
     self.class.all_books.push(self)
   end
 
+  def to_json(*_args)
+    {
+      title: @title,
+      author: @author,
+    }.to_json(*args)
+  end
+
   def add_rental(rental)
     @rentals.push(rental) unless @rentals.include?(rental)
   end
 
-  class << self
+class << self
     attr_reader :all_books
   end
 

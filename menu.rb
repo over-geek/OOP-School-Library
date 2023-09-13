@@ -61,6 +61,9 @@ class Menu
   end
 
   def exit_app
+    @app.save_data('books.json', @books)
+    @app.save_data('people.json', @people)
+    @app.save_data('rentals.json', @rentals)
     puts 'Thank you for using this app!'
     exit
   end
