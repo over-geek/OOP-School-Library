@@ -175,7 +175,7 @@ class App
 
   def load_data(filename, &deserialization_block)
     filepath = File.join(DATA_DIR, filename)
-    return [] unless File.exist?(filepath) && !File.zero?(filepath)
+    return [] unless File.exist?(filepath)
 
     json_data = File.read(filepath)
     parsed_data = JSON.parse(json_data)
@@ -231,8 +231,6 @@ class App
         )
       when 'Teacher'
         Teacher.new(person_data['name'], person_data['age'], person_data['specialization'])
-      else
-        nil
       end
     end.compact || []
   end
@@ -246,8 +244,8 @@ class App
       }
     end
 
-    save_data('rentals.json', rental_data) do |rental_data|
-      rental_data
+    save_data('rentals.json', rental_data) do |data|
+      data
     end
   end
 
