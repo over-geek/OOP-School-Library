@@ -13,51 +13,52 @@ class App
     @rentals = []
   end
 
-  def create_book
-    puts 'Enter book\'s title'
-    title = gets.chomp
-    puts 'Enter author\'s name'
-    author = gets.chomp
-    book = Book.new(title, author)
-    @books << book
-    puts "Created #{book.title} by #{book.author}"
-  end
-
-  def list_books
+  def list_all_books
     if @books.empty?
       puts 'There are no books available'
     else
       @books.each do |book|
-        puts "Title: '#{book.title}', Author: '#{book.author}'"
+        p "[Book] Title: #{book.title}, Author: #{book.author}"
       end
     end
   end
 
-  def list_people
+  def all_people_list
+    people = []
+    people.concat(Student.all)
+    people.concat(Teacher.all)
+    people
+  end
+
+  def list_all_people
     if @people.empty?
-      puts 'There\'s no one here ATM!'
+      puts 'There\'s no one here atm!'
     else
       @people.each do |person|
-        puts "Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
+        if person.instance_of?(Student)
+          p "[Student] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+        else
+          p "[Teacher] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+        end
       end
     end
   end
 
-  def create_person
+  def create_a_person
     puts 'Are you a:'
     puts '1 - Student'
     puts '2 - Teacher'
     person_input = gets.chomp.to_i
 
     case person_input
-    when 1 then create_student
-    when 2 then create_teacher
+    when 1 then create_a_student
+    when 2 then create_a_teacher
     else
       raise 'Please enter a valid option, number 1 or 2'
     end
   end
 
-  def create_student
+  def create_a_student
     puts 'What is your name?'
     name = gets.chomp
     puts 'How old are you?'
@@ -65,25 +66,36 @@ class App
     puts 'What grade are you?'
     classroom = gets.chomp
     puts 'Do you have your parents\' permission? [Y/N]'
-    parent_permission = gets.chomp
-    student = Student.new(classroom, age, name, parent_permission: parent_permission)
+    has_permission = gets.chomp
+    permission = has_permission == 'y'
+    student = Student.new(age, name, classroom, permission)
     @people << student
     puts 'Student successfully created'
   end
 
-  def create_teacher
+  def create_a_teacher
     puts 'What is your name?'
     name = gets.chomp
     puts 'How old are you?'
     age = gets.chomp.to_i
     puts 'Enter your specialization'
     specialization = gets.chomp
-    teacher = Teacher.new(name, age, specialization)
+    teacher = Teacher.new(age, specialization, true, name)
     @people << teacher
     puts 'Teacher Successfuly created'
   end
 
-  def create_rental
+  def create_a_book
+    print 'Title: '
+    title = gets.chomp
+    print 'Author: '
+    author = gets.chomp
+    book = Book.new(title, author)
+    @books << book
+    p 'Book created sucessfully!'
+  end
+
+  def create_a_rental
     return puts 'There are no books in the library.' if @books.empty?
     return puts 'There are no people in the system.' if @people.empty?
 
@@ -93,8 +105,9 @@ class App
     person = select_person
     return puts 'Invalid person selection.' if person.nil?
 
-    date = input_rental_date
-    rental = Rental.new(date, book, person)
+    print 'Date: '
+    date = gets.chomp
+    rental = Rental.new(date, person, book)
     @rentals << rental
     puts 'The book has been successfully rented!'
   end
@@ -122,18 +135,15 @@ class App
     @people[person_id_input - 1]
   end
 
-  def input_rental_date
-    puts 'Enter the rental date [yyyy-mm-dd]:'
-    gets.chomp
-  end
-
-  def list_all_rentals(person_id)
+  def rental_person_id
+    puts 'Enter ID of person: '
+    person_id = gets.chomp.to_i
     rentals = @rentals.select { |rental| rental.person.id == person_id }
     if rentals.empty?
       puts 'No rentals found for the given person ID!'
     else
       rentals.each do |rental|
-        puts "#{rental.book.title} by #{rental.book.author}, rented on #{rental.date}"
+        puts "Date: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author}"
       end
     end
   end
