@@ -1,0 +1,48 @@
+[
+  {
+    "id": 1,
+    "date": "2023-03-20",
+    "book": {
+      "id": 1,
+      "title": "Aki Ola",
+      "author": "Aki Ola",
+      "rentals": [
+        1
+      ]
+    },
+    "person": {
+      "id": 2,
+      "type": "teacher",
+      "name": "Khaled",
+      "age": 26,
+      "parent_permission": true,
+      "specialization": "Chemistry",
+      "rentals": [
+        1
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "date": "2023-07-10",
+    "book": {
+      "id": 2,
+      "title": "Shooting kabul",
+      "author": "Franklin",
+      "rentals": [
+        2
+      ]
+    },
+    "person": {
+      "id": 4,
+      "type": "teacher",
+      "name": "Mark",
+      "age": 56,
+      "parent_permission": true,
+      "specialization": "Math",
+      "rentals": [
+        2
+      ]
+    }
+  }
+]

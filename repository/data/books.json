@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Aki Ola",
+    "author": "Aki Ola",
+    "rentals": [
+      1
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Shooting kabul",
+    "author": "Franklin",
+    "rentals": [
+      2
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Gods are not to blame",
+    "author": "Ola Rotini",
+    "rentals": [
+
+    ]
+  }
+]
