@@ -18,12 +18,11 @@
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ](#faq)
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Decode Morse Code <a name="about-project"></a>
+# 📖 OOP School Library <a name="about-project"></a>
 
 OOP School Library is a tool to record what books are in a library and who borrows them. The app allows you to add new students or teachers, add new books, and save records of who borrowed a given book and when.
 
