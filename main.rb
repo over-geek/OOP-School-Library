@@ -1,23 +1,11 @@
-require './app'
-require './menu'
+require_relative 'app'
+require_relative 'user_interface_actions'
 
-class LibraryApp
-  def initialize
-    @app = App.new
-    @menu = Menu.new(@app)
-  end
-
-  def run
-    display_welcome_message
-    @menu.run
-  end
-
-  private
-
-  def display_welcome_message
-    puts 'Welcome to the OOP School Library App'
-    puts
-  end
+def main
+  puts 'Welcome to School Library App!'
+  app = App.new
+  user_actions = UserInterfaceActions.new(app)
+  user_actions.menu
 end
 
-LibraryApp.new.run
+main
