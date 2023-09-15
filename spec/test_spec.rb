@@ -1,7 +1,7 @@
 # spec/book_spec.rb
 
-require_relative '../classes/book'  # Update the path as needed
-require_relative '../classes/rental'  # Include any other dependencies
+require_relative '../classes/book' # Update the path as needed
+require_relative '../classes/rental' # Include any other dependencies
 
 describe Book do
   let(:book) { Book.new(1, 'Sample Title', 'Sample Author') }
